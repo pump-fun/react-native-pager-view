@@ -53,6 +53,31 @@ export interface NativeCommands {
     viewRef: React.ElementRef<PagerViewViewType>,
     scrollEnabled: boolean
   ) => void;
+  // FullStory commands - no-op implementations to prevent errors
+  dataElement: (
+    viewRef: React.ElementRef<PagerViewViewType>,
+    data: string
+  ) => void;
+  dataComponent: (
+    viewRef: React.ElementRef<PagerViewViewType>,
+    data: string
+  ) => void;
+  dataSourceFile: (
+    viewRef: React.ElementRef<PagerViewViewType>,
+    data: string
+  ) => void;
+  fsClass: (
+    viewRef: React.ElementRef<PagerViewViewType>,
+    data: string
+  ) => void;
+  fsAttribute: (
+    viewRef: React.ElementRef<PagerViewViewType>,
+    data: string
+  ) => void;
+  fsTagName: (
+    viewRef: React.ElementRef<PagerViewViewType>,
+    data: string
+  ) => void;
 }
 
 export const Commands: NativeCommands = codegenNativeCommands<NativeCommands>({
@@ -60,6 +85,13 @@ export const Commands: NativeCommands = codegenNativeCommands<NativeCommands>({
     'setPage',
     'setPageWithoutAnimation',
     'setScrollEnabledImperatively',
+    // FullStory commands - prevent "not supported" errors
+    'dataElement',
+    'dataComponent', 
+    'dataSourceFile',
+    'fsClass',
+    'fsAttribute',
+    'fsTagName',
   ],
 });
 

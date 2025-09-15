@@ -375,7 +375,7 @@ using namespace facebook::react;
 #pragma mark - Imperative methods exposed to React Native
 
 - (void)handleCommand:(const NSString *)commandName args:(const NSArray *)args {
-   RCTRNCViewPagerHandleCommand(self, commandName, args);
+  RCTRNCViewPagerHandleCommand(self, commandName, args);
 }
 
 - (void)setPage:(NSInteger)index {
@@ -388,6 +388,32 @@ using namespace facebook::react;
 
 - (void)setScrollEnabledImperatively:(BOOL)scrollEnabled {
     [scrollView setScrollEnabled:scrollEnabled];
+}
+
+#pragma mark - FullStory no-op command implementations
+
+- (void)dataElement:(NSString *)data {
+    // No-op: FullStory tracking command, silently ignored
+}
+
+- (void)dataComponent:(NSString *)data {
+    // No-op: FullStory tracking command, silently ignored
+}
+
+- (void)dataSourceFile:(NSString *)data {
+    // No-op: FullStory tracking command, silently ignored
+}
+
+- (void)fsClass:(NSString *)data {
+    // No-op: FullStory tracking command, silently ignored
+}
+
+- (void)fsAttribute:(NSString *)data {
+    // No-op: FullStory tracking command, silently ignored
+}
+
+- (void)fsTagName:(NSString *)data {
+    // No-op: FullStory tracking command, silently ignored
 }
 
 #pragma mark - Helpers
